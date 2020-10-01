@@ -1,7 +1,7 @@
 package com.sheeran.demo.ui.countryInfo
 
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.sheeran.demo.ui.base.view.CountryInfoAdapter
+import com.sheeran.demo.ui.countryInfo.view.CountryInfoAdapter
 import com.sheeran.demo.ui.countryInfo.interactor.CountryInfoInteractor
 import com.sheeran.demo.ui.countryInfo.interactor.CountryInfoIntractorImpl
 import com.sheeran.demo.ui.countryInfo.presenter.CountryInfoPresenter
@@ -24,7 +24,8 @@ class CountryInfoModule {
             : CountryInfoPresenter<CountryInfoView, CountryInfoInteractor> = presenter
 
     @Provides
-    internal fun provideAdapter(): CountryInfoAdapter = CountryInfoAdapter(ArrayList())
+    internal fun provideAdapter(): CountryInfoAdapter =
+        CountryInfoAdapter(ArrayList())
 
     @Provides
     internal fun provideLinearLayoutManager(countryView: CountryInfoActivity): LinearLayoutManager =

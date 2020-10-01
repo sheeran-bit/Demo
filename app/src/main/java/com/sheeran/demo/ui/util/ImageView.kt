@@ -1,13 +1,15 @@
 package com.sheeran.demo.ui.util
 
 import android.widget.ImageView
-import com.bumptech.glide.Glide
-
+import com.sheeran.demo.R
+import com.squareup.picasso.Picasso
 
 internal fun ImageView.loadImage(url: String) {
-    Glide.with(this.context)
+    Picasso.get()
         .load(url)
-        .asBitmap()
-        .centerCrop()
-        .into(this)
+        .placeholder(R.mipmap.ic_launcher_round)
+        .error(R.mipmap.ic_launcher_round)
+        .fit()
+        .noFade()
+        .into(this);
 }

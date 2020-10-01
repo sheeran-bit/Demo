@@ -19,9 +19,7 @@
             android:paddingEnd="@dimen/tendp"
             android:paddingTop="@dimen/tendp"
             android:background="@color/white"
-            android:overScrollMode="never"
-            android:visibility="gone"
-            tools:visibility="visible" />
+            android:overScrollMode="never" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

@@ -1,4 +1,4 @@
-package com.sheeran.demo.ui.base.view
+package com.sheeran.demo.ui.countryInfo.view
 
 import android.view.LayoutInflater
 import android.view.View
@@ -27,7 +27,8 @@ class CountryInfoAdapter(private val CountryInfoListItems: MutableList<AboutCoun
         )
 
     internal fun addDataToList(list: List<AboutCountry>) {
-        this.CountryInfoListItems.addAll(list)
+        this.CountryInfoListItems.clear()
+        this.CountryInfoListItems.addAll(list.filter { !it.description.isNullOrEmpty() && !it.title.isNullOrEmpty() && !it.imageHref.isNullOrEmpty() })
         notifyDataSetChanged()
     }
 
@@ -58,6 +59,7 @@ class CountryInfoAdapter(private val CountryInfoListItems: MutableList<AboutCoun
             imageHref?.let {
                 itemView.ivThumbnail.loadImage(it)
             }
+
         }
 
     }

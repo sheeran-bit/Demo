@@ -45,6 +45,7 @@
                     android:textStyle="normal"
                     android:paddingStart="@dimen/_5dp"
                     android:paddingEnd="@dimen/_5dp"
+                    android:paddingBottom="@dimen/_5dp"
                     tools:text="New York: The British phone-hacking scandal brought simmering tensions." />
 
                 <ImageView
@@ -54,8 +55,9 @@
                     android:layout_weight="0.5"
                     android:paddingStart="@dimen/_5dp"
                     android:paddingEnd="@dimen/_5dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_launcher_background" />
+                    android:paddingBottom="@dimen/_5dp"
+                    android:scaleType="fitCenter"
+                    tools:src="@drawable/ic_launcher_background" />
 
                 <ImageView
                     android:id="@+id/ivChevron"

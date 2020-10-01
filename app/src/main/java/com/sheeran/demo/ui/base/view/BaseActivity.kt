@@ -1,27 +1,28 @@
 package com.sheeran.demo.ui.base.view
 
+import android.app.ProgressDialog
 import android.os.Bundle
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
+import com.sheeran.demo.ui.util.CommonUtil
 import dagger.android.AndroidInjection
 
 abstract class BaseActivity : AppCompatActivity(), BaseView {
 
-    private var progressBar: ProgressBar? = null
+    private var progressDialog: ProgressDialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        injectDependency()
         super.onCreate(savedInstanceState)
-        setUp()
+        injectDependency()
     }
-
-    abstract fun setUp()
 
     private fun injectDependency() = AndroidInjection.inject(this)
 
     override fun showProgress() {
+        hideProgress()
+        progressDialog = CommonUtil.showLoadingDialog(this)
     }
 
     override fun hideProgress() {
+        progressDialog?.let { if (it.isShowing) it.cancel() }
     }
 }
