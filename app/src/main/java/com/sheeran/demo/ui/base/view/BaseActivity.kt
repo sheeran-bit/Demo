@@ -12,7 +12,10 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
         injectDependency()
         super.onCreate(savedInstanceState)
+        setUp()
     }
+
+    abstract fun setUp()
 
     private fun injectDependency() = AndroidInjection.inject(this)
 

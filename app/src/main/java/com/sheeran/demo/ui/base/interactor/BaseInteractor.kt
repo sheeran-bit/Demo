@@ -1,5 +1,12 @@
 package com.sheeran.demo.ui.base.interactor
 
-open class BaseInteractor() : Interactor {
+import com.sheeran.demo.data.network.ApiHelper
 
+open class BaseInteractor() {
+
+    protected lateinit var apiHelper: ApiHelper
+
+    constructor(apiHelper: ApiHelper) : this() {
+        this.apiHelper = apiHelper
+    }
 }

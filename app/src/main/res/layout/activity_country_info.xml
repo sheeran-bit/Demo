@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sheeran.demo.ui.countryInfo.view.CountryInfo">
+    android:background="@android:color/darker_gray"
+    tools:context="com.sheeran.demo.ui.countryInfo.view.CountryInfoActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/srlAboutCountry"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCountryInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/tendp"
+            android:paddingEnd="@dimen/tendp"
+            android:paddingTop="@dimen/tendp"
+            android:background="@color/white"
+            android:overScrollMode="never"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/tvNote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:paddingStart="@dimen/tendp"
+        android:paddingEnd="@dimen/tendp"
+        android:textSize="@dimen/note_padding"
+        tools:visibility="visible"
+        tools:text="DATA NOT FOUND ! ">
+
+    </TextView>
+
+</RelativeLayout>

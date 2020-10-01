@@ -6,24 +6,23 @@ import com.google.gson.annotations.SerializedName
 data class AboutResponse(
     @Expose
     @SerializedName(ApiConstants.TITLE)
-    private var title: String? = null,
-
+    var title: String? = null,
     @Expose
     @SerializedName(ApiConstants.ROWS)
-    private var rows: List<AboutRows>? = null
+    var rows: List<AboutCountry>? = null
 
 )
 
-data class AboutRows(
+data class AboutCountry(
     @Expose
     @SerializedName(ApiConstants.TITLE)
-    private var title: String? = null,
+    var title: String? = null,
     @Expose
     @SerializedName(ApiConstants.DESCRIPTION)
-    private var description: String? = null,
+    var description: String? = null,
     @Expose
     @SerializedName(ApiConstants.IMAGE_HREF)
-    private var imageHref: String? = null
+    var imageHref: String? = null
 
 
 )
