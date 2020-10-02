@@ -11,5 +11,5 @@ internal fun ImageView.loadImage(url: String) {
         .error(R.mipmap.ic_launcher_round)
         .fit()
         .noFade()
-        .into(this);
+        .into(this)
 }

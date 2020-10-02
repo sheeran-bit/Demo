@@ -22,7 +22,7 @@ class CountryInfoAdapter(private val CountryInfoListItems: MutableList<AboutCoun
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryInfoViewHolder =
         CountryInfoViewHolder(
-            LayoutInflater.from(parent?.context)
+            LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_about_country, parent, false)
         )
 

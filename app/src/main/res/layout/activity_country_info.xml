@@ -23,20 +23,4 @@
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <TextView
-        android:id="@+id/tvNote"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:visibility="gone"
-        android:paddingStart="@dimen/tendp"
-        android:paddingEnd="@dimen/tendp"
-        android:textSize="@dimen/note_padding"
-        tools:visibility="visible"
-        tools:text="DATA NOT FOUND ! ">
-
-    </TextView>
-
 </RelativeLayout>

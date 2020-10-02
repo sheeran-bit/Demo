@@ -1,5 +1,6 @@
 package com.sheeran.demo.ui.countryInfo.view
 
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,7 +16,6 @@ import javax.inject.Inject
 
 class CountryInfoActivity : BaseActivity(), CountryInfoView, SwipeRefreshLayout.OnRefreshListener {
 
-
     @Inject
     internal lateinit var presenter: CountryInfoPresenter<CountryInfoView, CountryInfoInteractor>
 
@@ -24,6 +24,8 @@ class CountryInfoActivity : BaseActivity(), CountryInfoView, SwipeRefreshLayout.
 
     @Inject
     internal lateinit var countryInfoAdapter: CountryInfoAdapter
+
+    private var configurationChnage: Boolean = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,22 +36,35 @@ class CountryInfoActivity : BaseActivity(), CountryInfoView, SwipeRefreshLayout.
         setUp()
     }
 
+    //better use Viewmodel for big response
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        configurationChnage = true
+    }
+
     fun setUp() {
-        layoutManager.orientation = LinearLayoutManager.VERTICAL
-        rvCountryInfo?.layoutManager = layoutManager
-        rvCountryInfo?.itemAnimator = DefaultItemAnimator()
-        rvCountryInfo?.adapter = countryInfoAdapter
-        presenter.loadAboutCountryJSON()
+        if (!configurationChnage) {
+            layoutManager.orientation = LinearLayoutManager.VERTICAL
+            rvCountryInfo?.layoutManager = layoutManager
+            rvCountryInfo?.itemAnimator = DefaultItemAnimator()
+            rvCountryInfo?.adapter = countryInfoAdapter
+            presenter.loadAboutCountryJSON()
+        }
     }
 
     override fun displayCountryInfoList(countryInfo: AboutResponse?) {
         supportActionBar?.title = countryInfo?.title
-        countryInfo?.rows?.let { countryInfoAdapter.addDataToList(it) }
+        countryInfo?.aboutCountry?.let { countryInfoAdapter.addDataToList(it) }
         srlAboutCountry.isRefreshing = false;
     }
 
     override fun onRefresh() {
         srlAboutCountry.isRefreshing = true;
         presenter.loadAboutCountryJSON()
+    }
+
+    override fun onDestroy() {
+        presenter.onDetach()
+        super.onDestroy()
     }
 }

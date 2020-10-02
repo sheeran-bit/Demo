@@ -9,7 +9,7 @@ data class AboutResponse(
     var title: String? = null,
     @Expose
     @SerializedName(ApiConstants.ROWS)
-    var rows: List<AboutCountry>? = null
+    var aboutCountry: List<AboutCountry>? = null
 
 )
 
